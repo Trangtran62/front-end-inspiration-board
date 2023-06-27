@@ -6,7 +6,7 @@ import './Board.css';
 const Board = ({board_id, title, owner, chooseBoard, cards}) => {
     return (
         <button className='board-button' onClick={() => chooseBoard(board_id)}>
-            <Link to="card" style={{ textDecoration: 'none' }} state={{ cards: cards}} >
+            <Link to="card" style={{ textDecoration: 'none' }} state={{ cards: cards, boardName: title }} >
                 <h3>{title}</h3>
                 <h4>Created by: {owner}</h4>
             </Link></button>

@@ -1,13 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import './BoardPage.css';
+import './Page.css';
 import BoardList from '../components/BoardList.js';
 import axios from 'axios';
 import NewBoardForm from '../components/NewBoardForm.js';
 
 const BoardPage = () => {
     // This will be replaced with an useEffect API call
-    const BOARDS_DATA = [
+    const initialBoards = [
         {
             board_id: 1,
             title: "Board 1",
@@ -55,20 +55,30 @@ const BoardPage = () => {
             board_id: 2,
             message: "fdf",
             likes_count: 0
-        }
+        },
+        {
+            board_id: 1,
+            message: "ryrye",
+            likes_count: 0
+        },
+        {
+            board_id: 1,
+            message: "wrer",
+            likes_count: 0
+        },
     ];
-
+    const [boardsData, setBoardsData] = useState(initialBoards);
     const [startIndex, setStartIndex] = useState(0);
-    const [currentBoards, setCurrentBoards] = useState(BOARDS_DATA.slice(0,4));
+    const [currentBoards, setCurrentBoards] = useState(boardsData.slice(0,4));
     const [cards, setCards] = useState(CARDS_DATA);
     
     // Move to the next or prev set of boards on click
     const boardChange = (direction) => {
-        const index = (direction === "next" && ((startIndex + 4) < BOARDS_DATA.length)) ? startIndex + 4
+        const index = (direction === "next" && ((startIndex + 4) < boardsData.length)) ? startIndex + 4
                     : (direction === "prev" && (startIndex - 4 >= 0)) ? startIndex - 4
                     : 0;
         setStartIndex(index);
-        setCurrentBoards(BOARDS_DATA.slice(startIndex, startIndex + 4)); 
+        setCurrentBoards(boardsData.slice(startIndex, startIndex + 4)); 
     };
 
     // This function will update the cards state with cards belong to 1 board_id
@@ -80,8 +90,8 @@ const BoardPage = () => {
 
     const postBoard = (board) => {
         // This will be replaced with a post request
-        const newBoards = currentBoards.push(board);
-        setCurrentBoards(newBoards);
+        const newBoards = boardsData.push(board);
+        setBoardsData(newBoards);
     }
 
     return (
