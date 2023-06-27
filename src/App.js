@@ -1,14 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
-import Board from './pages/Board';
-import Card from './pages/Card';
+import BoardPage from './pages/BoardPage';
+import CardPage from './pages/CardPage';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={ <Board/> } />
-        <Route path="card" element={ <Card/> } />
+        <Route path="/" element={ <BoardPage/> } />
+        <Route path="card" element={ <CardPage/> } />
       </Routes>
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Board.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import BoardList from '../components/BoardList.js';
 import CardList from '../components/CardList.js';
 import Card from '../components/Card.js';
@@ -122,11 +122,11 @@ const BoardPage = () => {
         setCards(newCards);
     };
 
-    const deleteCard = (id) => {
-        // This wiill be replace with an API call: delete card by id, then update state
-        const newCards = cards.filter((card) => card.id !== id);
-        setCards(newCards);
-    }
+    // const deleteCard = (id) => {
+    //     // This wiill be replace with an API call: delete card by id, then update state
+    //     const newCards = cards.filter((card) => card.id !== id);
+    //     setCards(newCards);
+    // }
 
     const postBoard = (board) => {
         // This will be replaced with a post request
@@ -142,9 +142,7 @@ const BoardPage = () => {
             <main>
                 <section>
                     <div className='sub-page-title'><h2>Boards</h2></div>
-                    <div className='sub-container'>
-                        <BoardList boards={currentBoards} chooseBoard={chooseBoard} deleteCard={deleteCard} />
-                    </div>
+                    <BoardList boards={currentBoards} chooseBoard={chooseBoard} />
                 </section>
                 <section>
                     <div className='sub-page-title'><h2>New Board</h2></div>
