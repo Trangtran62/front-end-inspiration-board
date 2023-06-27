@@ -48,8 +48,17 @@ const CardPage = () => {
             <main>
                 <section>
                     <div className="sub-page-title"><h2>Cards For {boardName}</h2></div>
-                    <CardList cards={cards} deleteCard={deleteCard} postCard={postCard} />
-                    
+                    <CardList cards={cards} deleteCard={deleteCard} likeCount={likeCount} />
+                    <div>
+                        <button onClick={() => cardChange("prev")}>↩ </button>
+                        <button onClick={() => cardChange("next")}> ↪</button>
+                    </div>
+                </section>
+                <section>
+                    <div className="sub-page-title"><h2>New Card</h2></div>
+                    <div className="sub-container">
+                        <NewCardForm addCard={postCard} />
+                    </div>
                 </section>
             </main>
         </body>
