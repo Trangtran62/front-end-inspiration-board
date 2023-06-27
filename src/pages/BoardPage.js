@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import './Board.css';
+import React from 'react';
+import { useState, useEffect } from 'react';
+import './BoardPage.css';
 // import { Link } from 'react-router-dom';
 import BoardList from '../components/BoardList.js';
-import CardList from '../components/CardList.js';
-import Card from '../components/Card.js';
 import axios from 'axios';
 import NewBoardForm from '../components/NewBoardForm.js';
 
@@ -11,103 +10,61 @@ const BoardPage = () => {
     // This will be replaced with an useEffect API call
     const BOARDS_DATA = [
         {
-            id: 1,
+            board_id: 1,
             title: "Board 1",
             owner: "Person 1",
-            cards: [
-                {
-                    message: "abc",
-                    likes_count: 0
-                },
-                {
-                    message: "efg",
-                    likes_count: 0
-                }
-            ]
         },
         {
-            id: 2,
+            board_id: 2,
             title: "Board 2",
             owner: "Person 2",
-            cards: [
-                {
-                    message: "abc",
-                    likes_count: 0
-                },
-                {
-                    message: "efg",
-                    likes_count: 0
-                }
-            ]
         },
         {
-            id: 3,
+            board_id: 3,
             title: "Board 3",
             owner: "Person 3",
-            cards: [
-                {
-                    message: "gfs",
-                    likes_count: 0
-                },
-                {
-                    message: "tert",
-                    likes_count: 0
-                }
-            ]
         },
         {
-            id: 4,
+            board_id: 4,
             title: "Board 4",
             owner: "Person 4",
-            cards: [
-                {
-                    message: "yuuy",
-                    likes_count: 0
-                },
-                {
-                    message: "ert",
-                    likes_count: 0
-                }
-            ]
         },
         {
-            id: 5,
+            board_id: 5,
             title: "Board 5",
             owner: "Person 5",
-            cards: [
-                {
-                    message: "411rw",
-                    likes_count: 0
-                },
-                {
-                    message: "etewr",
-                    likes_count: 0
-                }
-            ]
         },
         {
-            id: 6,
+            board_id: 6,
             title: "Board 6",
             owner: "Person 6",
-            cards: [
-                {
-                    message: "yiti",
-                    likes_count: 0
-                },
-                {
-                    message: "sadgf",
-                    likes_count: 0
-                }
-            ]
         },
+    ];
+
+    const CARDS_DATA = [
+        {
+            board_id: 1,
+            message: "shakshfjakf",
+            likes_count: 0
+        },
+        {
+            board_id: 1,
+            message: "dhheue",
+            likes_count: 0
+        },
+        {
+            board_id: 2,
+            message: "fdf",
+            likes_count: 0
+        }
     ];
 
     const [startIndex, setStartIndex] = useState(0);
     const [currentBoards, setCurrentBoards] = useState(BOARDS_DATA.slice(0,4));
-    const [cards, setCards] = useState(currentBoards[0].cards);
+    const [cards, setCards] = useState(CARDS_DATA);
     
     // Move to the next or prev set of boards on click
-    const boardsChange = (direction) => {
+    const boardChange = (direction) => {
         const index = (direction === "next" && ((startIndex + 4) < BOARDS_DATA.length)) ? startIndex + 4
                     : (direction === "prev" && (startIndex - 4 >= 0)) ? startIndex - 4
                     : 0;
@@ -117,16 +74,9 @@ const BoardPage = () => {
 
     const chooseBoard = (id) => {
         // This will be replaced will an API call to get cards by board id
-        const board = currentBoards.filter((board) => board.id === id);
-        const newCards = board[0].cards;
+        const newCards = cards.filter((card) => card.board_id === id);
         setCards(newCards);
     };
-
-    // const deleteCard = (id) => {
-    //     // This wiill be replace with an API call: delete card by id, then update state
-    //     const newCards = cards.filter((card) => card.id !== id);
-    //     setCards(newCards);
-    // }
 
     const postBoard = (board) => {
         // This will be replaced with a post request
@@ -143,6 +93,10 @@ const BoardPage = () => {
                 <section>
                     <div className='sub-page-title'><h2>Boards</h2></div>
                     <BoardList boards={currentBoards} chooseBoard={chooseBoard} />
+                    <div>
+                        <button onClick={() => boardChange("prev")}>↩ </button>
+                        <button onClick={() => boardChange("next")}> ↪</button>
+                    </div>
                 </section>
                 <section>
                     <div className='sub-page-title'><h2>New Board</h2></div>

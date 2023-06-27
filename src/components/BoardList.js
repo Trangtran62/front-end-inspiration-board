@@ -12,7 +12,6 @@ const BoardList = ({boards, chooseBoard}) => {
                     id={board.id}
                     title={board.title}
                     owner={board.owner}
-                    cards={board.cards}
                     chooseBoard={chooseBoard}
                 />
             );
@@ -21,20 +20,14 @@ const BoardList = ({boards, chooseBoard}) => {
     return <div className='sub-container'>{getBoardList(boards)}</div>
 };
 
-BoardList.PropTypes = {
+BoardList.propTypes = {
     boards: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.number.isRequired,
+            borad_id: PropTypes.number.isRequired,
             title: PropTypes.string.isRequired,
             owner: PropTypes.string.isRequired,
-            cards: PropTypes.arrayOf(
-                PropTypes.shape({
-                message: PropTypes.string.isRequired,
-                likes_count: PropTypes.number.isRequired
-                })
-            ).isRequired,
-        })
-    ).isRequired,
+        }).isRequired
+        ),
     chooseBoard: PropTypes.func.isRequired
 };
 
