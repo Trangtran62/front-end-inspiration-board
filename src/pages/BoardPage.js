@@ -7,7 +7,7 @@ import Card from '../components/Card.js';
 import axios from 'axios';
 import NewBoardForm from '../components/NewBoardForm.js';
 
-const Board = () => {
+const BoardPage = () => {
     // This will be replaced with an useEffect API call
     const BOARDS_DATA = [
         {
@@ -152,13 +152,10 @@ const Board = () => {
                         <NewBoardForm addBoard={postBoard} />
                     </div>
                 </section>
-                {/* <section>
-                    <div className='sub-page-title'><h2>Cards for {</h2></div>
-                </section> */}
             </main>
         </body>
     );
 
 };
 
-export default Board;
+export default BoardPage;
