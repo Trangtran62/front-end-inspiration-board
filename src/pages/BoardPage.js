@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import './BoardPage.css';
-// import { Link } from 'react-router-dom';
 import BoardList from '../components/BoardList.js';
 import axios from 'axios';
 import NewBoardForm from '../components/NewBoardForm.js';
@@ -72,6 +71,7 @@ const BoardPage = () => {
         setCurrentBoards(BOARDS_DATA.slice(startIndex, startIndex + 4)); 
     };
 
+    // This function will update the cards state with cards belong to 1 board_id
     const chooseBoard = (id) => {
         // This will be replaced will an API call to get cards by board id
         const newCards = cards.filter((card) => card.board_id === id);
@@ -92,7 +92,7 @@ const BoardPage = () => {
             <main>
                 <section>
                     <div className='sub-page-title'><h2>Boards</h2></div>
-                    <BoardList boards={currentBoards} chooseBoard={chooseBoard} />
+                    <BoardList boards={currentBoards} chooseBoard={chooseBoard} cards={cards} />
                     <div>
                         <button onClick={() => boardChange("prev")}>↩ </button>
                         <button onClick={() => boardChange("next")}> ↪</button>

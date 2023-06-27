@@ -4,15 +4,16 @@ import Board from './Board.js';
 import './BoardList.css';
 
 
-const BoardList = ({boards, chooseBoard}) => {
+const BoardList = ({boards, chooseBoard, cards}) => {
     const getBoardList = (boards) => {
         return boards.map((board) => {
             return (
                 <Board
-                    id={board.id}
+                    board_id={board.board_id}
                     title={board.title}
                     owner={board.owner}
                     chooseBoard={chooseBoard}
+                    cards={cards}
                 />
             );
         });
@@ -23,12 +24,19 @@ const BoardList = ({boards, chooseBoard}) => {
 BoardList.propTypes = {
     boards: PropTypes.arrayOf(
         PropTypes.shape({
-            borad_id: PropTypes.number.isRequired,
+            board_id: PropTypes.number.isRequired,
             title: PropTypes.string.isRequired,
             owner: PropTypes.string.isRequired,
         }).isRequired
         ),
-    chooseBoard: PropTypes.func.isRequired
+    chooseBoard: PropTypes.func.isRequired,
+    cards: PropTypes.arrayOf(
+        PropTypes.shape({
+            board_id: PropTypes.number.isRequired,
+            message: PropTypes.string.isRequired,
+            likes_count: PropTypes.number.isRequired
+        })
+    ).isRequired
 };
 
 export default BoardList;
