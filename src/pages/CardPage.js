@@ -56,7 +56,7 @@ const CardPage = () => {
                 </section>
                 <section>
                     <div className="sub-page-title"><h2>New Card</h2></div>
-                    <div className="sub-container">
+                    <div className="sub-container-form">
                         <NewCardForm addCard={postCard} />
                     </div>
                 </section>

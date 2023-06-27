@@ -18,7 +18,7 @@ const BoardList = ({boards, chooseBoard, cards}) => {
             );
         });
     };
-    return <div className='sub-container'>{getBoardList(boards)}</div>
+    return <div className='sub-container-boards'>{getBoardList(boards)}</div>
 };
 
 BoardList.propTypes = {

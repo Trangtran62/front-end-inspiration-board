@@ -110,7 +110,7 @@ const BoardPage = () => {
                 </section>
                 <section>
                     <div className='sub-page-title'><h2>New Board</h2></div>
-                    <div className='sub-container'>
+                    <div className='sub-container-form'>
                         <NewBoardForm addBoard={postBoard} />
                     </div>
                 </section>
