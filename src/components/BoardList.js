@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Board from './Board.js';
 import './BoardList.css';
-import { Link } from 'react-router-dom';
+
 
 const BoardList = ({boards, chooseBoard}) => {
     const getBoardList = (boards) => {
