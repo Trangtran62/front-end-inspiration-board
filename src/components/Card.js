@@ -14,12 +14,12 @@ const Card = ({board_id, card_id, message, likes_count, deleteCard, likeCount}) 
     };
 
     return (
-        <div className="card-frame">
-            <div className="card">{message}</div>
-            <div className="card-button-container">
+        <div className="card">
+            <h3>{message}</h3>
+            <span>
                 <button className="button" onClick={() => deleteCard(card_id)}>Delete</button>
-                <button className="button" onClick={onLikeClick}><span>{likes_count}</span> 💟</button>
-            </div>
+                <button className="button" onClick={onLikeClick}><span>{likes_count}</span> ♥ </button>
+            </span>
         </div>
     )
 };

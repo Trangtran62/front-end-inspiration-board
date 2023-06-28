@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import React from 'react';
+import './NewForm.css';
 
 const INITIAL_CARD = {
     message: ""
@@ -28,8 +29,8 @@ const NewCardForm = ({addCard}) => {
         <div className='sub-container-form'>
             { show ? (
                 <form onSubmit={handleSubmit}>
-                <label htmlFor="message">Message:</label><br/>
-                <input
+                <label htmlFor="message"><h2>Message:</h2></label><br/>
+                <input className='input-button'
                     required
                     type="text"
                     id="message"
@@ -37,12 +38,14 @@ const NewCardForm = ({addCard}) => {
                     value={formCard.message}
                     onChange={handleChange}
                 /><br/>
-                <input type="submit" value="submit" />
+                <input type="submit" value="Submit" />
             </form>
             ) : null
             }
-            <button onClick={() => setShow(false)}>Hide Form</button>
-            <button onClick={() => setShow(true)}>Show Form</button>
+            <span>
+                <button onClick={() => setShow(false)}>Hide Form</button>
+                <button onClick={() => setShow(true)}>Show Form</button>
+            </span>
         </div>
 
     )

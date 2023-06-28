@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import React from 'react';
-import './NewBoardForm.css';
+import './NewForm.css';
 
 const INITIAL_BOARD = {
     title: "",

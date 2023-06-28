@@ -53,23 +53,21 @@ const CardPage = () => {
 
     return (
         <div className="page">
-            <header>
-                <div className="board-page-title"><h1>Card Board</h1></div>
-            </header>
-            <main>
-                <section>
-                    <div className="sub-page-title"><h2>Cards For {boardName}</h2></div>
+            <div className="board-page-title">Card Board</div>
+            <div className="board-body">
+                <div className="board-div">
+                    <div className="sub-page-title">{boardName} Cards</div>
                     <CardList cards={currentCards} deleteCard={deleteCard} likeCount={likeCount} />
                     <div>
                         <button onClick={() => cardChange("prev")}>↩ </button>
                         <button onClick={() => cardChange("next")}> ↪</button>
                     </div>
-                </section>
-                <section>
-                    <div className="sub-page-title"><h2>New Card</h2></div>
+                </div>
+                <div className="board-div">
+                    <div className="sub-page-title">New Card</div>
                     <NewCardForm addCard={postCard} />
-                </section>
-            </main>
+                </div>
+            </div>
         </div>
     );
 };

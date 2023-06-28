@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Card from "./Card.js";
-import "./Card.css";
+import "./CardList.css";
 
 const CardList = ({cards, deleteCard, likeCount}) => {
     const getAllCards = (cards) => {
