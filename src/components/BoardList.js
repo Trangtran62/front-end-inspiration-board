@@ -9,6 +9,7 @@ const BoardList = ({boards, chooseBoard, cards}) => {
         return boards.map((board) => {
             return (
                 <Board
+                    key={board.board_id}
                     board_id={board.board_id}
                     title={board.title}
                     owner={board.owner}

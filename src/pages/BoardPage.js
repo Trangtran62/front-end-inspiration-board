@@ -100,7 +100,7 @@ const BoardPage = () => {
     }
 
     return (
-        <body className='page'>
+        <div className='page'>
             <header>
                 <div className='board-page-title'><h1>Inspiration Boards</h1></div>
             </header>
@@ -120,7 +120,7 @@ const BoardPage = () => {
                     </div>
                 </section>
             </main>
-        </body>
+        </div>
     );
 
 };

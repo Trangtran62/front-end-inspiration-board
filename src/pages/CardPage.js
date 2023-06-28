@@ -11,9 +11,11 @@ const CardPage = () => {
     const initialCards = location.state?.cards; // Only generate data when there is state in Link
     const boardName = location.state?.boardName;
 
+    console.log(initialCards);
+
     const [cardsData, setCardsData] = useState(initialCards);
     const [startIndex, setStartIndex] = useState(0);
-    const [currentCards, setCurrentCards] = useState(cardsData.slice(0.4));
+    const [currentCards, setCurrentCards] = useState(cardsData.slice(0,4));
 
     // Move to the next or prev set of cards to display
     const cardChange = (direction) => {
@@ -41,14 +43,14 @@ const CardPage = () => {
     };
 
     return (
-        <body className="page">
+        <div className="page">
             <header>
                 <div className="board-page-title"><h1>Card Board</h1></div>
             </header>
             <main>
                 <section>
                     <div className="sub-page-title"><h2>Cards For {boardName}</h2></div>
-                    <CardList cards={cards} deleteCard={deleteCard} likeCount={likeCount} />
+                    <CardList cards={currentCards} deleteCard={deleteCard} likeCount={likeCount} />
                     <div>
                         <button onClick={() => cardChange("prev")}>↩ </button>
                         <button onClick={() => cardChange("next")}> ↪</button>
@@ -61,7 +63,7 @@ const CardPage = () => {
                     </div>
                 </section>
             </main>
-        </body>
+        </div>
     );
 };
 

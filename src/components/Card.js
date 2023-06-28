@@ -18,7 +18,7 @@ const Card = ({board_id, card_id, message, likes_count, deleteCard, likeCount}) 
             <div className="card">{message}</div>
             <div className="card-button-container">
                 <button className="button" onClick={() => deleteCard(card_id)}>Delete</button>
-                <button className="button" onClick={onLikeClick}><span>{{likes_count}}</span> 💟</button>
+                <button className="button" onClick={onLikeClick}><span>{likes_count}</span> 💟</button>
             </div>
         </div>
     )

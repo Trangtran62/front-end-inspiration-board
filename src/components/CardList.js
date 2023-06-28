@@ -8,6 +8,7 @@ const CardList = ({cards, deleteCard, likeCount}) => {
         return cards.map((card) => {
             return (
                 <Card 
+                    key={card.card_id}
                     board_id={card.board_id}
                     card_id={card.card_id}
                     message={card.message}
