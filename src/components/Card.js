@@ -12,7 +12,7 @@ const Card = ({board_id, card_id, message, likes_count, deleteCard, likeCount}) 
         };
         likeCount(updatedCard);
     };
-    
+
     return (
         <div className="card-frame">
             <div className="card">{message}</div>
@@ -22,6 +22,15 @@ const Card = ({board_id, card_id, message, likes_count, deleteCard, likeCount}) 
             </div>
         </div>
     )
-}
+};
 
-export default CardList;
+Card.propTypes = {
+    board_id: PropTypes.number.isRequired,
+    card_id: PropTypes.number.isRequired,
+    message: PropTypes.string.isRequired,
+    likes_count: PropTypes.number.isRequired,
+    deleteCard: PropTypes.func.isRequired,
+    likeCount: PropTypes.func.isRequired
+};
+
+export default Card;
