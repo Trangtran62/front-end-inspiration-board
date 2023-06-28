@@ -7,8 +7,8 @@ const Board = ({board_id, title, owner, chooseBoard, cards}) => {
     return (
         <button className='board-button'>
             <Link to="card" style={{ textDecoration: 'none' }} state={{ cards: cards, boardName: title, boardId: board_id }} >
-                <h3>{title}</h3>
-                <h4>Created by: {owner}</h4>
+                <h2>{title}</h2>
+                <h3>Created by: {owner}</h3>
             </Link>
         </button>
     );
