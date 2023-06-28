@@ -8,14 +8,16 @@ const BoardList = ({boards, chooseBoard, cards}) => {
     const getBoardList = (boards) => {
         return boards.map((board) => {
             return (
-                <Board
-                    key={board.board_id}
-                    board_id={board.board_id}
-                    title={board.title}
-                    owner={board.owner}
-                    chooseBoard={chooseBoard}
-                    cards={cards}
-                />
+                <div className='sub-container-form'>
+                    <Board
+                        key={board.board_id}
+                        board_id={board.board_id}
+                        title={board.title}
+                        owner={board.owner}
+                        chooseBoard={chooseBoard}
+                        cards={cards}
+                    />
+                </div>
             );
         });
     };

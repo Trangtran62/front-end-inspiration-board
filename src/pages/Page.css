@@ -1,0 +1,76 @@
+/* * {
+    border: dashed;
+} */
+
+.page {
+    background-color: #f3c5c5;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px 20px 20px 20px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.board-page-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #94b49f;
+    border-radius: 30px;
+    height: 100px;
+    position: relative;
+    padding: 20px 20px 20px 20px;
+    margin-bottom: 50px;
+    width: 856px;
+    color: #ffffff;
+    font-family: "Jacques Francois", Helvetica;
+    font-size: 400%;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.board-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: space-around;
+    border: dashed;
+    width: 100vw;
+    height: auto;
+    margin-top: 50px;
+}
+
+.sub-page-title {
+    background-color: #df7861;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    height: 80px;
+    position: relative;
+    width: 25vw;
+    color: #ffffff;
+    font-family: "Roboto", Helvetica;
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: center;
+    top: auto;
+    bottom: 40px;
+}
+
+.board-div {
+    background-color: #ECB390;
+    border-radius: 50px;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    padding: 0px 20px 20px 20px;
+}

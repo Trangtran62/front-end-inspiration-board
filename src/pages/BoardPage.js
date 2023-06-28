@@ -103,23 +103,21 @@ const BoardPage = () => {
 
     return (
         <div className='page'>
-            <header>
-                <div className='board-page-title'><h1>Inspiration Boards</h1></div>
-            </header>
-            <main>
-                <section>
-                    <div className='sub-page-title'><h2>Boards</h2></div>
+            <div className='board-page-title'>Inspiration Boards</div>
+            <div className='board-body'>
+                <div className='board-div'>
+                    <div className='sub-page-title'>Boards</div>
                     <BoardList boards={currentBoards} chooseBoard={chooseBoard} cards={cards} />
                     <div>
                         <button onClick={() => boardChange("prev")}>↩ </button>
                         <button onClick={() => boardChange("next")}> ↪</button>
                     </div>
-                </section>
-                <section>
-                    <div className='sub-page-title'><h2>New Board</h2></div>
+                </div>    
+                <div className='board-div'>
+                    <div className='sub-page-title'>New Board</div>
                     <NewBoardForm addBoard={postBoard} />
-                </section>
-            </main>
+                </div>
+            </div>
         </div>
     );
 
