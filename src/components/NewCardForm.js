@@ -7,7 +7,7 @@ const INITIAL_CARD = {
     message: ""
 };
 
-const NewCardForm = ({addCard}) => {
+const NewCardForm = ({addCard, boardId={boardId}}) => {
     const [formCard, setFormCard] = useState(INITIAL_CARD);
     const [show, setShow] = useState(true);
 
@@ -52,7 +52,8 @@ const NewCardForm = ({addCard}) => {
 };
 
 NewCardForm.propTypes = {
-    addCard: PropTypes.func.isRequired
+    addCard: PropTypes.func.isRequired,
+    boardId: PropTypes.number.isRequired
 };
 
 export default NewCardForm;

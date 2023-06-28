@@ -18,15 +18,6 @@ Board.propTypes = {
     board_id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     owner: PropTypes.string.isRequired,
-    // chooseBoard: PropTypes.func.isRequired,
-    // cards: PropTypes.arrayOf(
-    //     PropTypes.shape({
-    //         board_id: PropTypes.number.isRequired,
-    //         card_id: PropTypes.number.isRequired,
-    //         message: PropTypes.string.isRequired,
-    //         likes_count: PropTypes.number.isRequired
-    //     })
-    // ).isRequired
 };
 
 export default Board;

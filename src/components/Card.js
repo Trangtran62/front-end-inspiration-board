@@ -1,24 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
 import "./Card.css";
 
-const Card = ({board_id, card_id, message, likes_count, deleteCard, likeCount}) => {
-    // const onLikeClick = () => {
-    //     const updatedCard = {
-    //         board_id: board_id,
-    //         card_id: card_id,
-    //         message: message,
-    //         likes_count: likes_count
-    //     };
-    //     likeCount(updatedCard);
-    // };
+const Card = ({board_id, card_id, message, likes_count, deleteCard, likeCount, boardId}) => {
+    const [likesCount, setLikesCount] = useState(likes_count);
+    const [buttonClick, setButtonClick] = useState(0);
+
+    useEffect(() => {
+        likeCount(card_id);
+    }, [likesCount]);
+
+    useEffect(() => {
+
+    }, [deleteCard]);
 
     return (
         <div className="card">
             <h3>{message}</h3>
             <span>
                 <button className="button" onClick={() => deleteCard(card_id)}>Delete</button>
-                <button className="button" onClick={() => likeCount(card_id)}><span>{likes_count}</span> ♥ </button>
+                <button className="button" onClick={() => setLikesCount(likesCount + 1)}><span>{likesCount}</span> ♥ </button>
             </span>
         </div>
     )

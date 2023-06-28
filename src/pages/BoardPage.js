@@ -72,19 +72,36 @@ const BoardPage = () => {
 //             likes_count: 0
 //         },
 //     ];
-
     const [boardsData, setBoardsData] = useState([]);
-    // const [cards, setCards] = useState(CARDS_DATA);
+    const API = "https://inspiration-board-api.onrender.com";
+    // let initialBoards = [];
+    // const getInitialBoards = async () => {
+    //     await axios
+    //             .get(`${API}/boards`)
+    //             .then((result) => {
+    //                 initialBoards = result.data;
+    //             })
+    //             .catch((err) => {
+    //                 console.log(err);
+    //             });
+    // };
+    // getInitialBoards();
     
+
+    // const [cards, setCards] = useState(CARDS_DATA);
     const getAllBoards = () => {
         axios
-            .get(`${process.env.API}/boards`)
+            .get(`${API}/boards`)
             .then((result) => {
                 setBoardsData(result.data);
+            })
+            .catch((err) => {
+                console.log(err);
             });
     };
 
     useEffect(() => {
+        console.log(boardsData);
         getAllBoards();
     }, []);
 
@@ -106,7 +123,7 @@ const BoardPage = () => {
         // boardsData.push(newBoard);
         // setBoardsData(boardsData);
         axios
-            .post(`${process.env.API}/boards`, board)
+            .post(`${API}/boards`, board)
             .then(() => {
                 getAllBoards();
             })

@@ -7,14 +7,16 @@ import axios from "axios";
 import "./Page.css";
 
 const CardPage = () => {
+    const [cardsData, setCardsData] = useState([]);
+    const API = "https://inspiration-board-api.onrender.com";
     const location = useLocation();
     // const initialCards = location.state?.cards;
     const boardId = location.state?.boardId;
     const boardName = location.state?.boardName;
-    const [cardsData, setCardsData] = useState([]);
 
     const getAllCards = () => {
-        axios.get(`${process.env.API}/cards/${boardId}`)
+        axios
+            .get(`${API}/cards/${boardId}`)
             .then((result) => {
                 setCardsData(result.data);
             })
@@ -27,8 +29,6 @@ const CardPage = () => {
         getAllCards();
     }, []);
 
-    // const filteredCards = initialCards.filter((card) => card.board_id === boardId);
-    // const [cardsData, setCardsData] = useState(filteredCards);
     const [startIndex, setStartIndex] = useState(0);
     const initialCurrentCards = cardsData.slice(0,4)
     const [currentCards, setCurrentCards] = useState(initialCurrentCards);
@@ -70,11 +70,10 @@ const CardPage = () => {
     };
 
     const likeCount = (id) => {
-        const newCard = currentCards.filter((card) => card.card_id === id);
+        const newCard = currentCards.filter((card) => card.card_id === id)[0];
         newCard.likes_count += 1;
-        // setCurrentCards(newCurrentCards);
         axios
-            .patch(`${API}/cards/${newCard}`)
+            .patch(`${API}/cards/${id}`, {newCard})
             .then(() => {
                 getAllCards();
             })
@@ -89,7 +88,7 @@ const CardPage = () => {
             <div className="board-body">
                 <div className="board-div">
                     <div className="sub-page-title">{boardName} Cards</div>
-                    <CardList cards={currentCards} deleteCard={deleteCard} likeCount={likeCount} />
+                    <CardList cards={currentCards} deleteCard={deleteCard} likeCount={likeCount} boardId={boardId} />
                     <div>
                         <button onClick={() => cardChange("prev")}>↩ </button>
                         <button onClick={() => cardChange("next")}> ↪</button>
@@ -97,7 +96,7 @@ const CardPage = () => {
                 </div>
                 <div className="board-div">
                     <div className="sub-page-title">New Card</div>
-                    <NewCardForm addCard={postCard} />
+                    <NewCardForm addCard={postCard} boardId={boardId} />
                 </div>
             </div>
         </div>

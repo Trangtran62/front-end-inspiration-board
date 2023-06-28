@@ -38,7 +38,6 @@ BoardList.propTypes = {
     //         likes_count: PropTypes.number.isRequired
     //         })
     //     ).isRequired,
-    chooseBoard: PropTypes.func.isRequired,
 };
 
 export default BoardList;

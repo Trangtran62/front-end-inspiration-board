@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Card from "./Card.js";
 import "./CardList.css";
 
-const CardList = ({cards, deleteCard, likeCount}) => {
+const CardList = ({cards, deleteCard, likeCount, boardId}) => {
     const getAllCards = (cards) => {
         return cards.map((card) => {
             return (
@@ -15,6 +15,7 @@ const CardList = ({cards, deleteCard, likeCount}) => {
                     likes_count={card.likes_count}
                     deleteCard={deleteCard}
                     likeCount={likeCount}
+                    boardId={boardId}
                 />
             );
         });
@@ -31,6 +32,7 @@ CardList.propTypes = {
             likes_count: PropTypes.number.isRequired
         })
     ).isRequired,
+    boardId: PropTypes.number.isRequired,
     deleteCard: PropTypes.func.isRequired,
     likeCount: PropTypes.func.isRequired
 }
