@@ -8,14 +8,14 @@ import "./Page.css";
 
 const CardPage = () => {
     const [cardsData, setCardsData] = useState([]);
+    const [startIndex, setStartIndex] = useState(0);
     const API = "https://inspiration-board-api.onrender.com";
     const location = useLocation();
-    // const initialCards = location.state?.cards;
     const boardId = location.state?.boardId;
     const boardName = location.state?.boardName;
 
-    const getAllCards = () => {
-        axios
+    const getAllCards = async () => {
+        await axios
             .get(`${API}/cards/${boardId}`)
             .then((result) => {
                 setCardsData(result.data);
@@ -29,8 +29,7 @@ const CardPage = () => {
         getAllCards();
     }, []);
 
-    const [startIndex, setStartIndex] = useState(0);
-    const initialCurrentCards = cardsData.slice(0,4)
+    const initialCurrentCards = cardsData.slice(0,4);
     const [currentCards, setCurrentCards] = useState(initialCurrentCards);
 
     // Move to the next or prev set of cards to display
@@ -43,8 +42,6 @@ const CardPage = () => {
     };
 
     const deleteCard = (id) => {
-        // const newCards = cardsData.filter((card) => card.card_id !== id);
-        // setCardsData(newCards);
         axios
             .delete(`${API}/cards/${id}`)
             .then(() => {
@@ -55,11 +52,8 @@ const CardPage = () => {
             });
     };
 
-    const postCard = (card) => {
-        // const newCard = { board_id: boardId, ...card};
-        // cardsData.push(newCard); // post api call
-        // setCardsData(cardsData); // get api call
-        axios
+    const postCard = async (card) => {
+        await axios
             .post(`${API}/cards`, {board_id: boardId, ...card})
             .then(() => {
                 getAllCards();
@@ -69,11 +63,9 @@ const CardPage = () => {
             });
     };
 
-    const likeCount = (id) => {
-        const newCard = currentCards.filter((card) => card.card_id === id)[0];
-        newCard.likes_count += 1;
+    const likeCount = (card, id) => {
         axios
-            .patch(`${API}/cards/${id}`, {newCard})
+            .patch(`${API}/cards/${id}`, card)
             .then(() => {
                 getAllCards();
             })

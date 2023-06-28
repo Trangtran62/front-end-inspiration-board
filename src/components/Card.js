@@ -5,22 +5,19 @@ import "./Card.css";
 
 const Card = ({board_id, card_id, message, likes_count, deleteCard, likeCount, boardId}) => {
     const [likesCount, setLikesCount] = useState(likes_count);
-    const [buttonClick, setButtonClick] = useState(0);
 
-    useEffect(() => {
-        likeCount(card_id);
-    }, [likesCount]);
-
-    useEffect(() => {
-
-    }, [deleteCard]);
+    const onLikesChange = () => {
+        const newCard = {likes_count: likesCount + 1};
+        likeCount(newCard, card_id);
+        setLikesCount(likesCount + 1);
+    }
 
     return (
         <div className="card">
             <h3>{message}</h3>
             <span>
                 <button className="button" onClick={() => deleteCard(card_id)}>Delete</button>
-                <button className="button" onClick={() => setLikesCount(likesCount + 1)}><span>{likesCount}</span> ♥ </button>
+                <button className="button" onClick={onLikesChange}>{likesCount} ♥ </button>
             </span>
         </div>
     )
