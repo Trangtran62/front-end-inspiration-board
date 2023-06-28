@@ -9,6 +9,7 @@ const CardList = ({cards, deleteCard, likeCount}) => {
             return (
                 <Card 
                     board_id={card.board_id}
+                    card_id={card.card_id}
                     message={card.message}
                     likes_count={card.likes_count}
                     deleteCard={card.deleteCard}
@@ -24,6 +25,7 @@ CardList.propTypes = {
     cards: PropTypes.arrayOf(
         PropTypes.shape({
             board_id: PropTypes.number.isRequired,
+            card_id: PropTypes.number.isRequired,
             title: PropTypes.string.isRequired,
             likes_count: PropTypes.number.isRequired
         })

@@ -43,26 +43,31 @@ const BoardPage = () => {
     const CARDS_DATA = [
         {
             board_id: 1,
+            card_id: 1,
             message: "shakshfjakf",
             likes_count: 0
         },
         {
             board_id: 1,
+            card_id: 2,
             message: "dhheue",
             likes_count: 0
         },
         {
             board_id: 2,
+            card_id: 3,
             message: "fdf",
             likes_count: 0
         },
         {
             board_id: 1,
+            card_id: 4,
             message: "ryrye",
             likes_count: 0
         },
         {
             board_id: 1,
+            card_id: 5,
             message: "wrer",
             likes_count: 0
         },

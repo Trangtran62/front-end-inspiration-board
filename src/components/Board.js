@@ -9,7 +9,8 @@ const Board = ({board_id, title, owner, chooseBoard, cards}) => {
             <Link to="card" style={{ textDecoration: 'none' }} state={{ cards: cards, boardName: title }} >
                 <h3>{title}</h3>
                 <h4>Created by: {owner}</h4>
-            </Link></button>
+            </Link>
+        </button>
     );
 };
 
@@ -21,6 +22,7 @@ Board.propTypes = {
     cards: PropTypes.arrayOf(
         PropTypes.shape({
             board_id: PropTypes.number.isRequired,
+            card_id: PropTypes.number.isRequired,
             message: PropTypes.string.isRequired,
             likes_count: PropTypes.number.isRequired
         })
