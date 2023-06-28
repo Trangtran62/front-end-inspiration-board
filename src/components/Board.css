@@ -12,6 +12,8 @@
 
 h2, h3 {
     color: #df7861;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .board-button:hover {
@@ -20,7 +22,5 @@ h2, h3 {
 }
 
 .board-button:active {
-    background-color: #94b49f;
-    border-color: #f7f5f5;
     transform: translateY(6px);
 }

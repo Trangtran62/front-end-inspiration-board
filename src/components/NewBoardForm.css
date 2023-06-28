@@ -1,0 +1,35 @@
+h2, h3 {
+    color: #df7861;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sub-container-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.input-button {
+    color: #df7861;
+    background-color: aliceblue;
+    border-color: #94b49f;
+    border-width: 4px;
+    border-radius: 5px;
+    text-align: left;
+    width: 20vw;
+    height: 40px;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.input-button:hover {
+    border-color: #f7f5f5;
+}
+
+.input-button:active {
+    transform: translateY(6px);
+}

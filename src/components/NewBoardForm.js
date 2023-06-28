@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import React from 'react';
+import './NewBoardForm.css';
 
 const INITIAL_BOARD = {
     title: "",
@@ -30,8 +31,8 @@ const NewBoardForm = ({addBoard}) => {
         <div className='sub-container-form'>
             { show ? (             
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="title">Board Name:</label><br/>
-                    <input
+                    <label htmlFor="title"><h2>Board Name:</h2></label><br/>
+                    <input className='input-button'
                         required
                         type="text"
                         id="title"
@@ -39,8 +40,8 @@ const NewBoardForm = ({addBoard}) => {
                         value={formBoard.title}
                         onChange={handleChange}
                     /><br/>
-                    <label htmlFor="owner">Created By:</label><br/>
-                    <input
+                    <label htmlFor="owner"><h2>Created By:</h2></label><br/>
+                    <input className='input-button'
                         required
                         type="text"
                         id="owner"
@@ -48,12 +49,14 @@ const NewBoardForm = ({addBoard}) => {
                         value={formBoard.owner}
                         onChange={handleChange}
                     /><br/>
-                    <input type="submit" value="submit" />
+                    <input type="submit" value="Submit" />
                 </form>
             ) : null
             }
-            <button onClick={() => setShow(false)}>Hide Form</button>
-            <button onClick={() => setShow(true)}>Show Form</button>
+            <span>
+                <button onClick={() => setShow(false)}>Hide Form</button>
+                <button onClick={() => setShow(true)}>Show Form</button>
+            </span>
         </div>
     )
 };
