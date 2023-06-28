@@ -121,7 +121,7 @@ const BoardPage = () => {
             <div className='board-body'>
                 <div className='board-div'>
                     <div className='sub-page-title'>Boards</div>
-                    <BoardList boards={currentBoards} chooseBoard={chooseBoard} />
+                    <BoardList boards={currentBoards} />
                     <div>
                         <button onClick={() => boardChange("prev")}>↩ </button>
                         <button onClick={() => boardChange("next")}> ↪</button>

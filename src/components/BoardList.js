@@ -4,7 +4,7 @@ import Board from './Board.js';
 import './BoardList.css';
 
 
-const BoardList = ({boards, chooseBoard}) => {
+const BoardList = ({boards}) => {
     const getBoardList = (boards) => {
         return boards.map((board) => {
             return (
@@ -14,7 +14,6 @@ const BoardList = ({boards, chooseBoard}) => {
                         board_id={board.board_id}
                         title={board.title}
                         owner={board.owner}
-                        chooseBoard={chooseBoard}
                     />
                 </div>
             );
