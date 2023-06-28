@@ -28,8 +28,8 @@ const CardPage = () => {
 
     // Replace with API call later
     const deleteCard = (id) => {
-        const newCards = cardsData.filter((card) => card.id !== id); // delete api call
-        setCardsData(newCards); // get api call
+        const newCards = cardsData.filter((card) => card.card_id !== id); // delete api call
+        setCurrentCards(newCards); // get api call
     };
     
     const postCard = (card) => {
