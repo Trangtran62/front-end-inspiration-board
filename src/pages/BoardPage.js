@@ -95,8 +95,9 @@ const BoardPage = () => {
 
     const postBoard = (board) => {
         // This will be replaced with a post request
-        const newBoards = boardsData.push({...board, board_id: Math.random()});
-        setBoardsData(newBoards);
+        const newBoard = {...board, board_id: Math.random()};
+        const newBoardsData = boardsData.push(newBoard);
+        setBoardsData(newBoardsData);
     }
 
     return (

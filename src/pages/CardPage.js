@@ -30,10 +30,11 @@ const CardPage = () => {
         const newCards = cardsData.filter((card) => card.card_id !== id); // delete api call
         setCurrentCards(newCards); // get api call
     };
-    
+
     const postCard = (card) => {
-        const newCards = cardsData.push(card); // post api call
-        setCardsData(newCards); // get api call
+        const newCard = {...card, board_id: boardId, card_id: Math.random(), likes_count: 0};
+        const newCardsData = cardsData.push(newCard); // post api call
+        setCardsData(newCardsData); // get api call
     };
 
     const likeCount = (updatedCard) => {
