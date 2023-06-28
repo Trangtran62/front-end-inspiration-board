@@ -8,6 +8,7 @@ const INITIAL_CARD = {
 
 const NewCardForm = ({addCard}) => {
     const [formCard, setFormCard] = useState(INITIAL_CARD);
+    const [show, setShow] = useState(true);
 
     const handleChange = (event) => {
         const newFormCard = {
@@ -24,18 +25,26 @@ const NewCardForm = ({addCard}) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="message">Message:</label><br/>
-            <input
-                required
-                type="text"
-                id="message"
-                name="message"
-                value={formCard.message}
-                onChange={handleChange}
-            /><br/>
-            <input type="submit" value="submit" />
-        </form>
+        <div className='sub-container-form'>
+            { show ? (
+                <form onSubmit={handleSubmit}>
+                <label htmlFor="message">Message:</label><br/>
+                <input
+                    required
+                    type="text"
+                    id="message"
+                    name="message"
+                    value={formCard.message}
+                    onChange={handleChange}
+                /><br/>
+                <input type="submit" value="submit" />
+            </form>
+            ) : null
+            }
+            <button onClick={() => setShow(false)}>Hide Form</button>
+            <button onClick={() => setShow(true)}>Show Form</button>
+        </div>
+
     )
 };
 
