@@ -9,11 +9,10 @@ import "./Page.css";
 const CardPage = () => {
     const location = useLocation();
     const initialCards = location.state?.cards; // Only generate data when there is state in Link
+    const boardId = location.state?.boardId;
     const boardName = location.state?.boardName;
 
-    console.log(initialCards);
-
-    const [cardsData, setCardsData] = useState(initialCards);
+    const [cardsData, setCardsData] = useState(initialCards.filter((card) => card.board_id === boardId));
     const [startIndex, setStartIndex] = useState(0);
     const [currentCards, setCurrentCards] = useState(cardsData.slice(0,4));
 
