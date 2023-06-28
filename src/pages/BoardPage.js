@@ -6,89 +6,10 @@ import axios from 'axios';
 import NewBoardForm from '../components/NewBoardForm.js';
 
 const BoardPage = () => {
-//     // This will be replaced with an useEffect API call
-//     const initialBoards = [
-//         {
-//             board_id: 1,
-//             title: "Board 1",
-//             owner: "Person 1",
-//         },
-//         {
-//             board_id: 2,
-//             title: "Board 2",
-//             owner: "Person 2",
-//         },
-//         {
-//             board_id: 3,
-//             title: "Board 3",
-//             owner: "Person 3",
-//         },
-//         {
-//             board_id: 4,
-//             title: "Board 4",
-//             owner: "Person 4",
-//         },
-//         {
-//             board_id: 5,
-//             title: "Board 5",
-//             owner: "Person 5",
-//         },
-//         {
-//             board_id: 6,
-//             title: "Board 6",
-//             owner: "Person 6",
-//         },
-//     ];
 
-//     const CARDS_DATA = [
-//         {
-//             board_id: 1,
-//             card_id: 1,
-//             message: "shakshfjakf",
-//             likes_count: 0
-//         },
-//         {
-//             board_id: 1,
-//             card_id: 2,
-//             message: "dhheue",
-//             likes_count: 0
-//         },
-//         {
-//             board_id: 2,
-//             card_id: 3,
-//             message: "fdf",
-//             likes_count: 0
-//         },
-//         {
-//             board_id: 1,
-//             card_id: 4,
-//             message: "ryrye",
-//             likes_count: 0
-//         },
-//         {
-//             board_id: 1,
-//             card_id: 5,
-//             message: "wrer",
-//             likes_count: 0
-//         },
-//     ];
     const [boardsData, setBoardsData] = useState([]);
     const API = "https://inspiration-board-api.onrender.com";
-    // let initialBoards = [];
-    // const getInitialBoards = async () => {
-    //     await axios
-    //             .get(`${API}/boards`)
-    //             .then((result) => {
-    //                 initialBoards = result.data;
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err);
-    //             });
-    // };
-    // getInitialBoards();
-    
 
-    // const [cards, setCards] = useState(CARDS_DATA);
     const getAllBoards = () => {
         axios
             .get(`${API}/boards`)
@@ -138,6 +59,7 @@ const BoardPage = () => {
             <div className='board-body'>
                 <div className='board-div'>
                     <div className='sub-page-title'>Boards</div>
+                    <p>Toggle the arrow buttons below to show boards</p>
                     <BoardList boards={currentBoards} />
                     <div>
                         <button onClick={() => boardChange("prev")}>↩ </button>

@@ -10,7 +10,10 @@
     width: 100vw;
     height: 100vh;
 }
-
+p {
+    color: #df7861;
+    -webkit-text-stroke-width: 1px ;
+}
 .board-page-title {
     display: flex;
     align-items: center;

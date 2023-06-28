@@ -80,6 +80,7 @@ const CardPage = () => {
             <div className="board-body">
                 <div className="board-div">
                     <div className="sub-page-title">{boardName} Cards</div>
+                    <p>Toggle the arrow buttons below to show cards</p>
                     <CardList cards={currentCards} deleteCard={deleteCard} likeCount={likeCount} boardId={boardId} />
                     <div>
                         <button onClick={() => cardChange("prev")}>↩ </button>
