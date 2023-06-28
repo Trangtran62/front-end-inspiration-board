@@ -74,7 +74,8 @@ const BoardPage = () => {
     ];
     const [boardsData, setBoardsData] = useState(initialBoards);
     const [startIndex, setStartIndex] = useState(0);
-    const [currentBoards, setCurrentBoards] = useState(boardsData.slice(0,4));
+    const initialCurrentBoard = boardsData.slice(0,4);
+    const [currentBoards, setCurrentBoards] = useState(initialCurrentBoard);
     const [cards, setCards] = useState(CARDS_DATA);
     
     // Move to the next or prev set of boards on click
@@ -96,8 +97,8 @@ const BoardPage = () => {
     const postBoard = (board) => {
         // This will be replaced with a post request
         const newBoard = {...board, board_id: Math.random()};
-        const newBoardsData = boardsData.push(newBoard);
-        setBoardsData(newBoardsData);
+        boardsData.push(newBoard);
+        setBoardsData(boardsData);
     }
 
     return (

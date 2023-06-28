@@ -15,8 +15,8 @@ const NewBoardForm = ({addBoard}) => {
             ...formBoard,
             [event.target.name]: event.target.value
         };
-        console.log(event.target);
         setFormBoard(newFormBoard);
+        console.log(formBoard);
     };
 
     const handleSubmit = (event) => {
