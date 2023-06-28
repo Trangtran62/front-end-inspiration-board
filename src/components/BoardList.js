@@ -4,7 +4,7 @@ import Board from './Board.js';
 import './BoardList.css';
 
 
-const BoardList = ({boards, chooseBoard, cards}) => {
+const BoardList = ({boards, chooseBoard}) => {
     const getBoardList = (boards) => {
         return boards.map((board) => {
             return (
@@ -15,7 +15,6 @@ const BoardList = ({boards, chooseBoard, cards}) => {
                         title={board.title}
                         owner={board.owner}
                         chooseBoard={chooseBoard}
-                        cards={cards}
                     />
                 </div>
             );
@@ -32,14 +31,14 @@ BoardList.propTypes = {
             owner: PropTypes.string.isRequired
             })
         ).isRequired,
-    cards: PropTypes.arrayOf(
-        PropTypes.shape({
-            board_id: PropTypes.number.isRequired,
-            card_id: PropTypes.number.isRequired,
-            message: PropTypes.string.isRequired,
-            likes_count: PropTypes.number.isRequired
-            })
-        ).isRequired,
+    // cards: PropTypes.arrayOf(
+    //     PropTypes.shape({
+    //         board_id: PropTypes.number.isRequired,
+    //         card_id: PropTypes.number.isRequired,
+    //         message: PropTypes.string.isRequired,
+    //         likes_count: PropTypes.number.isRequired
+    //         })
+    //     ).isRequired,
     chooseBoard: PropTypes.func.isRequired,
 };
 

@@ -3,22 +3,22 @@ import PropTypes from "prop-types";
 import "./Card.css";
 
 const Card = ({board_id, card_id, message, likes_count, deleteCard, likeCount}) => {
-    const onLikeClick = () => {
-        const updatedCard = {
-            board_id: board_id,
-            card_id: card_id,
-            message: message,
-            likes_count: likes_count
-        };
-        likeCount(updatedCard);
-    };
+    // const onLikeClick = () => {
+    //     const updatedCard = {
+    //         board_id: board_id,
+    //         card_id: card_id,
+    //         message: message,
+    //         likes_count: likes_count
+    //     };
+    //     likeCount(updatedCard);
+    // };
 
     return (
         <div className="card">
             <h3>{message}</h3>
             <span>
                 <button className="button" onClick={() => deleteCard(card_id)}>Delete</button>
-                <button className="button" onClick={onLikeClick}><span>{likes_count}</span> ♥ </button>
+                <button className="button" onClick={() => likeCount(card_id)}><span>{likes_count}</span> ♥ </button>
             </span>
         </div>
     )

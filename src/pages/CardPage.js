@@ -8,12 +8,27 @@ import "./Page.css";
 
 const CardPage = () => {
     const location = useLocation();
-    const initialCards = location.state?.cards; // This will be replaced with API call get cards by board id
+    // const initialCards = location.state?.cards;
     const boardId = location.state?.boardId;
     const boardName = location.state?.boardName;
+    const [cardsData, setCardsData] = useState([]);
 
-    const filteredCards = initialCards.filter((card) => card.board_id === boardId);
-    const [cardsData, setCardsData] = useState(filteredCards);
+    const getAllCards = () => {
+        axios.get(`${process.env.API}/cards/${boardId}`)
+            .then((result) => {
+                setCardsData(result.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    useEffect(() => {
+        getAllCards();
+    }, []);
+
+    // const filteredCards = initialCards.filter((card) => card.board_id === boardId);
+    // const [cardsData, setCardsData] = useState(filteredCards);
     const [startIndex, setStartIndex] = useState(0);
     const initialCurrentCards = cardsData.slice(0,4)
     const [currentCards, setCurrentCards] = useState(initialCurrentCards);
@@ -27,28 +42,45 @@ const CardPage = () => {
         setCurrentCards(cardsData.slice(startIndex, startIndex + 4)); 
     };
 
-    // Replace with API call later
     const deleteCard = (id) => {
-        const newCards = cardsData.filter((card) => card.card_id !== id); // delete api call
-        setCardsData(newCards); // get api call
+        // const newCards = cardsData.filter((card) => card.card_id !== id);
+        // setCardsData(newCards);
+        axios
+            .delete(`${API}/cards/${id}`)
+            .then(() => {
+                getAllCards();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     const postCard = (card) => {
-        const newCard = { board_id: boardId, card_id: Date.now(), likes_count: 0, ...card};
-        cardsData.push(newCard); // post api call
-        setCardsData(cardsData); // get api call
+        // const newCard = { board_id: boardId, ...card};
+        // cardsData.push(newCard); // post api call
+        // setCardsData(cardsData); // get api call
+        axios
+            .post(`${API}/cards`, {board_id: boardId, ...card})
+            .then(() => {
+                getAllCards();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
-    const likeCount = (updatedCard) => {
-        updatedCard.likes_count += 1;
-        const newCurrentCards = currentCards.map((card) => {
-            if (card.card_id === updatedCard.card_id) {
-                return updatedCard;
-            } else {
-                return card;
-            }
-        });
-        setCurrentCards(newCurrentCards);
+    const likeCount = (id) => {
+        const newCard = currentCards.filter((card) => card.card_id === id);
+        newCard.likes_count += 1;
+        // setCurrentCards(newCurrentCards);
+        axios
+            .patch(`${API}/cards/${newCard}`)
+            .then(() => {
+                getAllCards();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     return (
