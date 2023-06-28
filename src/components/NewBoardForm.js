@@ -9,7 +9,8 @@ const INITIAL_BOARD = {
 
 const NewBoardForm = ({addBoard}) => {
     const [formBoard, setFormBoard] = useState(INITIAL_BOARD);
-
+    const [show, setShow] = useState(true);
+    
     const handleChange = (event) => {
         const newFormBoard = {
             ...formBoard,
@@ -26,27 +27,34 @@ const NewBoardForm = ({addBoard}) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="title">Board Name:</label><br/>
-            <input
-                required
-                type="text"
-                id="title"
-                name="title"
-                value={formBoard.title}
-                onChange={handleChange}
-            /><br/>
-            <label htmlFor="owner">Created By:</label><br/>
-            <input
-                required
-                type="text"
-                id="owner"
-                name="owner"
-                value={formBoard.owner}
-                onChange={handleChange}
-            /><br/>
-            <input type="submit" value="submit" />
-        </form>
+        <div className='sub-container-form'>
+            { show ? (             
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="title">Board Name:</label><br/>
+                    <input
+                        required
+                        type="text"
+                        id="title"
+                        name="title"
+                        value={formBoard.title}
+                        onChange={handleChange}
+                    /><br/>
+                    <label htmlFor="owner">Created By:</label><br/>
+                    <input
+                        required
+                        type="text"
+                        id="owner"
+                        name="owner"
+                        value={formBoard.owner}
+                        onChange={handleChange}
+                    /><br/>
+                    <input type="submit" value="submit" />
+                </form>
+            ) : null
+            }
+            <button onClick={() => setShow(false)}>Hide Form</button>
+            <button onClick={() => setShow(true)}>Show Form</button>
+        </div>
     )
 };
 
