@@ -39,7 +39,14 @@ const CardPage = () => {
 
     const likeCount = (updatedCard) => {
         updatedCard.likes_count += 1;
-        postCard(updatedCard);
+        const newCurrentCards = currentCards.map((card) => {
+            if (card.card_id === updatedCard.card_id) {
+                return updatedCard;
+            } else {
+                return card;
+            }
+        });
+        setCurrentCards(newCurrentCards);
     };
 
     return (

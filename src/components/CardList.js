@@ -13,8 +13,8 @@ const CardList = ({cards, deleteCard, likeCount}) => {
                     card_id={card.card_id}
                     message={card.message}
                     likes_count={card.likes_count}
-                    deleteCard={card.deleteCard}
-                    likeCount={card.likeCount}
+                    deleteCard={deleteCard}
+                    likeCount={likeCount}
                 />
             );
         });
@@ -27,7 +27,7 @@ CardList.propTypes = {
         PropTypes.shape({
             board_id: PropTypes.number.isRequired,
             card_id: PropTypes.number.isRequired,
-            title: PropTypes.string.isRequired,
+            message: PropTypes.string.isRequired,
             likes_count: PropTypes.number.isRequired
         })
     ).isRequired,
