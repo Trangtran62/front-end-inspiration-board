@@ -8,17 +8,19 @@ import "./Page.css";
 
 const CardPage = () => {
     const location = useLocation();
-    const initialCards = location.state?.cards; // Only generate data when there is state in Link
+    const initialCards = location.state?.cards; // This will be replaced with API call get cards by board id
     const boardId = location.state?.boardId;
     const boardName = location.state?.boardName;
 
-    const [cardsData, setCardsData] = useState(initialCards.filter((card) => card.board_id === boardId));
+    const filteredCards = initialCards.filter((card) => card.board_id === boardId);
+    const [cardsData, setCardsData] = useState(filteredCards);
     const [startIndex, setStartIndex] = useState(0);
-    const [currentCards, setCurrentCards] = useState(cardsData.slice(0,4));
+    const initialCurrentCards = cardsData.slice(0,4)
+    const [currentCards, setCurrentCards] = useState(initialCurrentCards);
 
     // Move to the next or prev set of cards to display
     const cardChange = (direction) => {
-        const index = (direction === "next" && ((startIndex + 4) < currentCards.length)) ? startIndex + 4
+        const index = (direction === "next" && ((startIndex + 4) < cardsData.length)) ? startIndex + 4
                     : (direction === "prev" && (startIndex - 4 >= 0)) ? startIndex - 4
                     : 0;
         setStartIndex(index);
@@ -28,13 +30,13 @@ const CardPage = () => {
     // Replace with API call later
     const deleteCard = (id) => {
         const newCards = cardsData.filter((card) => card.card_id !== id); // delete api call
-        setCurrentCards(newCards); // get api call
+        setCardsData(newCards); // get api call
     };
 
     const postCard = (card) => {
-        const newCard = {...card, board_id: boardId, card_id: Math.random(), likes_count: 0};
-        const newCardsData = cardsData.push(newCard); // post api call
-        setCardsData(newCardsData); // get api call
+        const newCard = { board_id: boardId, card_id: Date.now(), likes_count: 0, ...card};
+        cardsData.push(newCard); // post api call
+        setCardsData(cardsData); // get api call
     };
 
     const likeCount = (updatedCard) => {

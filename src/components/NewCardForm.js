@@ -14,7 +14,6 @@ const NewCardForm = ({addCard}) => {
             ...formCard,
             [event.target.name]: event.target.value
         };
-        console.log(event.target);
         setFormCard(newFormCard);
     };
 
@@ -41,7 +40,7 @@ const NewCardForm = ({addCard}) => {
 };
 
 NewCardForm.propTypes = {
-    addBoard: PropTypes.func.isRequired
+    addCard: PropTypes.func.isRequired
 };
 
 export default NewCardForm;
