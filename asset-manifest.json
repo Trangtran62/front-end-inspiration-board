@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/front-end-inspiration-board/static/css/main.09c68119.css",
+    "main.js": "/front-end-inspiration-board/static/js/main.0cb6caf4.js",
+    "index.html": "/front-end-inspiration-board/index.html",
+    "main.09c68119.css.map": "/front-end-inspiration-board/static/css/main.09c68119.css.map",
+    "main.0cb6caf4.js.map": "/front-end-inspiration-board/static/js/main.0cb6caf4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09c68119.css",
+    "static/js/main.0cb6caf4.js"
+  ]
+}
