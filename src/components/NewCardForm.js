@@ -37,6 +37,7 @@ const NewCardForm = ({addCard, boardId={boardId}}) => {
                     name="message"
                     value={formCard.message}
                     onChange={handleChange}
+                    placeholder='limit to 40 characters'
                 /><br/>
                 <input type="submit" value="Submit" />
                 </form>

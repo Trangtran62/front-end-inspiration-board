@@ -5,6 +5,7 @@ import CardList from "../components/CardList.js";
 import NewCardForm from "../components/NewCardForm.js";
 import axios from "axios";
 import "./Page.css";
+import Swal from "sweetalert2";
 
 const CardPage = () => {
     const [cardsData, setCardsData] = useState([]);
@@ -60,6 +61,7 @@ const CardPage = () => {
             })
             .catch((err) => {
                 console.log(err);
+                Swal.fire(err.response.data.details);
             });
     };
 

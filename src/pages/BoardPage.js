@@ -40,9 +40,6 @@ const BoardPage = () => {
     };
 
     const postBoard = (board) => {
-        // const newBoard = {...board, board_id: Date.now()};
-        // boardsData.push(newBoard);
-        // setBoardsData(boardsData);
         axios
             .post(`${API}/boards`, board)
             .then(() => {
