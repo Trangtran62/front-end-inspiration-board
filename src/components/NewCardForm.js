@@ -39,7 +39,7 @@ const NewCardForm = ({addCard, boardId={boardId}}) => {
                     onChange={handleChange}
                 /><br/>
                 <input type="submit" value="Submit" />
-            </form>
+                </form>
             ) : null
             }
             <span>

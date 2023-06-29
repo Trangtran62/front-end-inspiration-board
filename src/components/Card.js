@@ -5,20 +5,31 @@ import "./Card.css";
 
 const Card = ({board_id, card_id, message, likes_count, deleteCard, likeCount, boardId}) => {
     const [likesCount, setLikesCount] = useState(likes_count);
+    const [show, setShow] = useState(true);
 
     const onLikesChange = () => {
         const newCard = {likes_count: likesCount + 1};
         likeCount(newCard, card_id);
         setLikesCount(likesCount + 1);
-    }
+    };
+
+    const onDelete = () => {
+        deleteCard(card_id);
+        setShow(false);
+    };
 
     return (
-        <div className="card">
-            <h3>{message}</h3>
-            <span>
-                <button className="button" onClick={() => deleteCard(card_id)}>Delete</button>
-                <button className="button" onClick={onLikesChange}>{likesCount} ♥ </button>
-            </span>
+        <div>
+            {show ? (
+                <div className="card">
+                <h3>{message}</h3>
+                <span>
+                    <button className="button" onClick={onDelete}>Delete</button>
+                    <button className="button" onClick={onLikesChange}>{likesCount} ♥ </button>
+                </span>
+                </div>
+            ) : null
+            }
         </div>
     )
 };
